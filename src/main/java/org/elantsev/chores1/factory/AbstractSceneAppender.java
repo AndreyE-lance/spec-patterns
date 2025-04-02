@@ -2,6 +2,8 @@ package org.elantsev.chores1.factory;
 
 import org.elantsev.chores1.scene.Scene;
 import org.elantsev.chores1.shapes.AbstractGraphObject;
+import org.elantsev.chores1.shapes.CompositeShape;
+import org.elantsev.chores1.shapes.ShapeLeaf;
 
 /**
  * AbstractSceneAppender
@@ -12,12 +14,14 @@ import org.elantsev.chores1.shapes.AbstractGraphObject;
  */
 public abstract class AbstractSceneAppender {
     private final Scene scene;
+    private final CompositeShape compositeShape;
 
-    public AbstractSceneAppender(Scene scene) {
+    public AbstractSceneAppender(Scene scene, CompositeShape compositeShape) {
         this.scene = scene;
+        this.compositeShape = compositeShape;
     }
 
-    protected void addOnScene(AbstractGraphObject object) {
-        scene.add(object);
+    protected void addOnScene(ShapeLeaf leaf) {
+        scene.add(compositeShape, leaf);
     }
 }

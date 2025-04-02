@@ -8,7 +8,7 @@ import org.elantsev.chores1.shapes.colors.Color;
  *
  * @author Andrey_Elantsev
  */
-public class Point extends AbstractGraphObject {
+public class Point extends ShapeLeaf {
 
     /**
      * Координата точки.
@@ -31,7 +31,7 @@ public class Point extends AbstractGraphObject {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Object clone() {
         return new Point(this);
     }
 }

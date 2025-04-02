@@ -8,7 +8,7 @@ import org.elantsev.chores1.shapes.colors.Color;
  *
  * @author Andrey_Elantsev
  */
-public class Line extends AbstractGraphObject {
+public class Line extends ShapeLeaf {
 
     /**
      * Начальная координата.
@@ -38,7 +38,7 @@ public class Line extends AbstractGraphObject {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Object clone() {
         return new Line(this);
     }
 }

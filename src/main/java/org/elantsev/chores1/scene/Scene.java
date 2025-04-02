@@ -1,9 +1,8 @@
 package org.elantsev.chores1.scene;
 
-import org.elantsev.chores1.shapes.AbstractGraphObject;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.elantsev.chores1.facade.SceneFacade;
+import org.elantsev.chores1.shapes.CompositeShape;
+import org.elantsev.chores1.shapes.ShapeLeaf;
 
 /**
  * Scene
@@ -12,9 +11,11 @@ import java.util.List;
  *
  * @author Andrey_Elantsev
  */
-public class Scene {
+public class Scene implements SceneFacade {
+
     private static Scene instance;
-    private List<AbstractGraphObject> graphObjects = new ArrayList<>();
+
+    private ShapeLeaf root;
 
     private Scene() {
     }
@@ -26,7 +27,24 @@ public class Scene {
         return instance;
     }
 
-    public void add(AbstractGraphObject graphObject) {
-        graphObjects.add(graphObject);
+    public void add(CompositeShape compositeShape, ShapeLeaf leaf) {
+        if (compositeShape == null && root != null) {
+            compositeShape = (CompositeShape) root;
+        }
+        if (compositeShape == null) {
+            root = leaf;
+        } else {
+            compositeShape.getChildren().add(leaf);
+        }
+
+    }
+
+    public void setRoot(ShapeLeaf root) {
+        this.root = root;
+    }
+
+    @Override
+    public void showScene(String... args) {
+        //реализация фасада
     }
 }
