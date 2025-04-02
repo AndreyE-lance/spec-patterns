@@ -3,6 +3,7 @@ package org.elantsev.chores1.scene.builder;
 import org.elantsev.chores1.factory.ShapeAbstractFactory;
 import org.elantsev.chores1.factory.ShapeFactory;
 import org.elantsev.chores1.scene.Scene;
+import org.elantsev.chores1.shapes.CompositeShape;
 import org.elantsev.chores1.shapes.Coordinate;
 import org.elantsev.chores1.shapes.colors.Color;
 
@@ -17,9 +18,9 @@ public class SceneBuilderImpl<T extends Color> implements SceneBuilder<T> {
     private final ShapeAbstractFactory<T> factory;
     private final Scene scene;
 
-    public SceneBuilderImpl() {
+    public SceneBuilderImpl(CompositeShape compositeShape) {
         this.scene = Scene.getInstance();
-        this.factory = new ShapeFactory<T>(scene);
+        this.factory = new ShapeFactory<T>(scene, compositeShape);
     }
 
     @Override

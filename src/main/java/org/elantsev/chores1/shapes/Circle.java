@@ -5,9 +5,10 @@ import org.elantsev.chores1.shapes.colors.Color;
 /**
  * Circle
  * Класс для описания графической фигуры "Окружность".
+ *
  * @author Andrey_Elantsev
  */
-public class Circle extends AbstractGraphObject {
+public class Circle extends ShapeLeaf {
 
     /**
      * Координата центра.
@@ -37,7 +38,7 @@ public class Circle extends AbstractGraphObject {
     }
 
     @Override
-    public Circle clone() throws CloneNotSupportedException {
+    public Circle clone() {
         return new Circle(this);
     }
 }

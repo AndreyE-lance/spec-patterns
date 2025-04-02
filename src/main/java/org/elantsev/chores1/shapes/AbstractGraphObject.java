@@ -14,31 +14,10 @@ import org.elantsev.chores1.shapes.colors.Color;
  *
  * @author Andrey_Elantsev
  */
-public abstract class AbstractGraphObject implements Cloneable{
-
-    /**
-     * Поле для хранения цвета фигуры.
-     */
-    Color color;
+public abstract class AbstractGraphObject implements Cloneable {
 
     /**
      * Метод служит для изображения фигур на сцене {@link Scene}
      */
     abstract public void draw();
-
-    public AbstractGraphObject(Color color) {
-        this.color = color;
-    }
-    public AbstractGraphObject(AbstractGraphObject abstractGraphObject) {
-        this.color = abstractGraphObject.color;
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        try {
-            return super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
-    }
 }

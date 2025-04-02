@@ -2,6 +2,7 @@ package org.elantsev.chores1.factory;
 
 import org.elantsev.chores1.scene.Scene;
 import org.elantsev.chores1.shapes.Circle;
+import org.elantsev.chores1.shapes.CompositeShape;
 import org.elantsev.chores1.shapes.Coordinate;
 import org.elantsev.chores1.shapes.Line;
 import org.elantsev.chores1.shapes.Point;
@@ -17,8 +18,8 @@ import org.elantsev.chores1.shapes.colors.Color;
 public class ShapeFactory<T extends Color> extends AbstractSceneAppender
         implements ShapeAbstractFactory<T> {
 
-    public ShapeFactory(Scene scene) {
-        super(scene);
+    public ShapeFactory(Scene scene, CompositeShape compositeShape) {
+        super(scene, compositeShape);
     }
 
     @Override
